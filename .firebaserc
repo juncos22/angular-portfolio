@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "portafolio-online": {
+      "hosting": {
+        "portafolio-online": [
+          "portafolio-online"
+        ]
+      }
+    }
+  }
+}

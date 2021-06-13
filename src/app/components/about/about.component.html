@@ -1,0 +1,47 @@
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>About</h2>
+      <p>{{sProfile.profile?.bio}}</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4" data-aos="fade-right">
+        <img src="{{this.sProfile.profile?.cvPhoto}}" class="img-fluid" alt="{{this.sProfile.profile?.name}}">
+      </div>
+      <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+        <div *ngFor="let expertise of sExpertise.expertises">
+          <h3>{{expertise.name}}</h3>
+          <p class="fst-italic">
+            {{expertise.description}}
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- End About Section -->
+<!-- ======= Skills Section ======= -->
+<section id="skills" class="skills section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Skills</h2>
+      <p>A continuacion, se muestran todas las tecnologias que manejo y su porcentaje de conocimiento y dominio.</p>
+    </div>
+
+    <div class="row skills-content">
+      <div class="col-lg-6" data-aos="fade-up" *ngFor="let skill of sSkill.skills">
+        <div class="progress">
+          <span class="skill">{{skill.name}} <progress-bar [progress]="skill.percent"
+              [color-degraded]="{'0': '#a8c0ff',  '15': '#5235d6', '25': '#3f2b96'}"></progress-bar></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- End Skills Section -->

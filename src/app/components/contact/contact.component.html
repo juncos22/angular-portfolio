@@ -1,0 +1,82 @@
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Si piensa que puedo tener las habilidades y conocimientos necesarios para formar parte de
+        su empresa, por favor no dude en contactarme.
+      </p>
+    </div>
+
+    <div class="row" data-aos="fade-in">
+
+      <div class="col-lg-5 d-flex align-items-stretch">
+        <div class="info">
+          <div class="address">
+            <i class="bi bi-geo-alt"></i>
+            <h4>Location:</h4>
+            <p>Cordoba Capital, Argentina</p>
+          </div>
+
+          <!-- <div class="email">
+            <i class="bi bi-envelope"></i>
+            <h4>Email:</h4>
+            <p><a href="mailto:nicolas_juncos@outlook.com">nicolas_juncos@outlook.com</a></p>
+          </div> -->
+          <!-- data=!4m5!3m4!1s0x9432985f478f5b69:0xb0a24f9a5366b092!8m2!3d-31.4200833!4d-64.1887761 -->
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6809.788941898922!2d-64.18190773129274!3d-31.41703346550441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1621608662912!5m2!1ses-419!2sar"
+            width="100%" height="290px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+      </div>
+      <!-- 
+        SMTP USERNAME: juncosnicolas36@gmail.com
+        SMTP PASSWORD: 90AB6A88805C4C61A1F3A83837F5FCF60FEE
+        SMTP SERVER: smtp.elasticemail.com
+        SMTP PORT: 2525
+       -->
+      <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+        <form (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="name">Su Nombre</label>
+              <input type="text" name="from" [(ngModel)]="contact.senderName" class="form-control" id="name" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="email">Su Correo</label>
+              <input type="email" class="form-control" name="from" [(ngModel)]="contact.senderEmail" id="email"
+                required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">El Asunto</label>
+            <input type="text" class="form-control" name="subject" [(ngModel)]="contact.subject" id="subject" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea class="form-control" name="message" [(ngModel)]="contact.message" rows="10" required></textarea>
+          </div>
+          <div class="my-3">
+            <progress-bar [progress]="progressValue.toString()" *ngIf="loading">Enviando..</progress-bar>
+            <!-- <div class="error-message"></div> -->
+            <div *ngIf="sent" class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>Tu mensaje fue enviado, muchas gracias!</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+          </div>
+          <div class="text-center mt-3">
+            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Contact Section -->
