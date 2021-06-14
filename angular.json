@@ -31,17 +31,13 @@
               "src/assets/css/style.css",
               "src/assets/vendor/aos/aos.css",
               "src/assets/vendor/bootstrap/css/bootstrap-grid.min.css",
-              "src/assets/vendor/bootstrap-icons/bootstrap-icons.css",
-              "src/assets/vendor/swiper/swiper-bundle.min.css",
               "src/assets/vendor/boxicons/css/animations.css"
             ],
             "scripts": [
               "src/assets/js/main.js",
               "src/assets/vendor/aos/aos.js",
               "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
-              "src/assets/vendor/bootstrap/js/bootstrap.min.js",
-              "src/assets/vendor/bootstrap-icons/bootstrap-icons.json",
-              "src/assets/vendor/swiper/swiper-bundle.min.js"
+              "src/assets/vendor/bootstrap/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -49,8 +45,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",

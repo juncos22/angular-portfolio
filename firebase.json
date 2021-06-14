@@ -1,10 +1,13 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/portafolio-online",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "scripts": {
+      "prestart": "node src/assets/js/server.js"
+    }
   }
 }

@@ -2,6 +2,7 @@
   "name": "portafolio-online",
   "version": "0.0.0",
   "scripts": {
+    "prestart": "node src/assets/js/server.js",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
