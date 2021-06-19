@@ -287,6 +287,7 @@ section {
   color: #149ddd;
 }
 
+
 /* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
@@ -608,11 +609,11 @@ section {
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
-  color: #fff;
+  color: #212121;
 }
 
 #hero p {
-  color: #fff;
+  color: rgb(22, 22, 22);
   margin-bottom: 50px;
   font-size: 26px;
   font-family: "Poppins", sans-serif;

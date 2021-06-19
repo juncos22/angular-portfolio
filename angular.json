@@ -34,10 +34,12 @@
               "src/assets/vendor/boxicons/css/animations.css"
             ],
             "scripts": [
-              "src/assets/js/main.js",
-              "src/assets/vendor/aos/aos.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.min.js",
               "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
-              "src/assets/vendor/bootstrap/js/bootstrap.min.js"
+              "src/assets/js/main.js",
+              "src/assets/vendor/aos/aos.js"
             ]
           },
           "configurations": {

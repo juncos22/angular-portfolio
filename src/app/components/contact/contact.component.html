@@ -5,13 +5,14 @@
     <div class="section-title">
       <h2>Contact</h2>
       <p>Si piensa que puedo tener las habilidades y conocimientos necesarios para formar parte de
-        su empresa, por favor no dude en contactarme.
+        su empresa, por favor no dude en contactarme, ya sea por este formulario o por las
+        redes sociales disponibles en este sitio.
       </p>
     </div>
 
     <div class="row" data-aos="fade-in">
 
-      <div class="col-lg-12 d-flex align-items-stretch">
+      <div class="col-lg-5 d-flex align-items-stretch">
         <div class="info">
           <div class="address">
             <i class="bi bi-geo-alt"></i>
@@ -26,43 +27,44 @@
 
       </div>
 
-      <!-- <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+      <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
         <form (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="form-group col-md-6">
               <label for="name">Su Nombre</label>
-              <input type="text" name="from" [(ngModel)]="contact.senderName" class="form-control" id="name" required>
+              <input type="text" name="from" [(ngModel)]="message.from" class="form-control" id="name" required>
             </div>
             <div class="form-group col-md-6">
               <label for="email">Su Correo</label>
-              <input type="email" class="form-control" name="from" [(ngModel)]="contact.senderEmail" id="email"
+              <input type="email" class="form-control" name="emailFrom" [(ngModel)]="message.emailFrom" id="email"
                 required>
             </div>
           </div>
           <div class="form-group">
             <label for="subject">El Asunto</label>
-            <input type="text" class="form-control" name="subject" [(ngModel)]="contact.subject" id="subject" required>
+            <input type="text" class="form-control" name="subject" [(ngModel)]="message.subject" id="subject" required>
           </div>
           <div class="form-group">
             <label for="message">Mensaje</label>
-            <textarea class="form-control" name="message" [(ngModel)]="contact.message" rows="10" required></textarea>
+            <textarea class="form-control" name="body" [(ngModel)]="message.body" rows="10" required></textarea>
           </div>
           <div class="my-3">
             <progress-bar [progress]="progressValue.toString()" *ngIf="loading">Enviando..</progress-bar>
-            <!-- <div class="error-message"></div> 
-            <div *ngIf="sent" class="alert alert-success alert-dismissible fade show" role="alert">
-              <strong>Tu mensaje fue enviado, muchas gracias!</strong>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
 
+            <div *ngIf="failure" class="alert alert-danger" role="alert">
+              <h4 class="alert-heading">Error</h4>
+              <p>{{responseMessage}}</p>
+            </div>
+            <div *ngIf="sent" class="alert alert-success" role="alert">
+              <h4 class="alert-heading">Felicidades!</h4>
+              <p>{{responseMessage}}</p>
+            </div>
           </div>
           <div class="text-center mt-3">
             <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
           </div>
         </form>
-      </div> -->
+      </div>
 
     </div>
 

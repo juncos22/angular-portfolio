@@ -2,16 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Contact } from '../models/contact';
+import { MessageResponse } from "./../models/message-response";
+import { Message } from "./../models/message";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmailService {
 
-  // NO DISPONIBLE POR AHORA!!!
+  // URL -> POST: https://emailsenderws.azurewebsites.net/api/Email/Send
   constructor(private _http: HttpClient) { }
-  sendEmail(contact: Contact): Observable<any> {
-    return this._http.post('', contact);
+  sendEmail(message: Message): Observable<MessageResponse> {
+    return this._http.post<MessageResponse>(`${environment.apiUrlBase}/Send`, message);
   }
 }
