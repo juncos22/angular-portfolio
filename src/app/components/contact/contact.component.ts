@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
+import { interval, timer } from 'rxjs';
 import { Message } from 'src/app/models/message';
 import { EmailService } from 'src/app/services/email.service';
 
@@ -23,35 +23,42 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     if (this.validarFormulario()) {
-      this.loading = true;
-      interval(200).subscribe(value => {
-        if (this.loading) {
-          this.progressValue = this.progressValue < 100
-            ? this.progressValue += (value * 2)
-            : 0;
-        } else {
-          this.progressValue = 0;
+      try {
+        this.loading = true;
+        setInterval(() => {
+          if (this.loading) {
+            this.progressValue = this.progressValue < 100
+              ? this.progressValue += 10
+              : 0;
+          } else {
+            this.progressValue = 0;
+          }
+        }, 200);
+        this.emailService.sendEmail(this.message).subscribe(response => {
           this.loading = false;
-        }
-      });
-      this.emailService.sendEmail(this.message).subscribe(response => {
-        this.loading = false;
-        if (response.statusCode === 200) {
-          this.sent = true;
-          this.responseMessage = response.responseMessage;
-        } else {
-          this.failure = true;
-          this.responseMessage = "No se pudo enviar el mensaje, disculpas";
-        }
-        interval(3500).subscribe(_ => {
-          this.sent = false;
-          this.message = new Message();
+          if (response.statusCode === 200) {
+            this.sent = true;
+            this.responseMessage = response.responseMessage;
+          } else {
+            this.failure = true;
+            this.responseMessage = "No se pudo enviar el mensaje, disculpas";
+          }
+          timer(3500).subscribe(() => {
+            this.sent = false;
+            this.message = new Message();
+          });
         });
-      });
+      } catch (error) {
+        this.failure = true;
+        this.responseMessage = error;
+        timer(3500).subscribe(() => {
+          this.failure = false;
+        });
+      }
     } else {
       this.failure = true;
       this.responseMessage = "Debe completar todos los campos";
-      interval(3500).subscribe(_ => {
+      timer(3500).subscribe(() => {
         this.failure = false;
       });
     }
